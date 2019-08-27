@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <card>
+        <title>Basic configuration</title>
+        <title lang="de-DE">Grundeinstellungen</title>
+
+        <input-field>
+            <name>accountId</name>
+            <copyable>true</copyable>
+            <label>Account ID</label>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>Development Mode</name>
+            <label>Production or Development mode</label>
+            <label lang="de-DE">Live- / Entwicklungsmodus</label>
+            <options>
+                <option>
+                    <id>dev</id>
+                    <name>Dev mode</name>
+                    <name lang="de-DE">Dev Modus</name>
+                </option>
+                <option>
+                    <id>prod</id>
+                    <name>Production mode</name>
+                    <name lang="de-DE">Live Modus</name>
+                </option>
+            </options>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Advanced Configuration</title>
+        <title lang="de-DE">Erweiterte Einstellungen</title>
+        <input-field type="password">
+            <name>secret</name>
+            <label>Secret token</label>
+            <label lang="de-DE">Geheim Schlüssel</label>
+            <helpText>Your secret token for xyz...</helpText>
+            <helpText lang="de-DE">Dein geheimer Schlüssel für xyz...</helpText>
+        </input-field>
+    </card>
+</config>

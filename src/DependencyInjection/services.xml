@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <imports>
+        <import resource="commands.xml" />
+        <import resource="components.xml" />
+        <import resource="controller.xml" />
+        <import resource="controller-storefront.xml" />
+        <import resource="entities.xml" />
+        <import resource="extensions.xml" />
+        <import resource="pages.xml" />
+        <!--<import resource="scheduled-tasks.xml" />-->
+        <import resource="subscriber.xml" />
+        <import resource="translations.xml" />
+    </imports>
+
+    <services>
+        <service id="Bvsk\PluginBoilerplate\Service\ExampleService" />
+
+        <service id="Bvsk\PluginBoilerplate\Service\ExampleDecoratedService" decorates="Bvsk\PluginBoilerplate\Service\ExampleService">
+            <argument type="service" id="Bvsk\PluginBoilerplate\Service\ExampleService.inner" />
+        </service>
+    </services>
+</container>

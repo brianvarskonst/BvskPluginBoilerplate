@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="Bvsk\PluginBoilerplate\DataAbstractionLayer\Entity\CustomEntity\CustomEntityDefinition">
+            <tag name="shopware.entity.definition" entity="custom_entity"/>
+        </service>
+
+        <service id="Bvsk\PluginBoilerplate\DataAbstractionLayer\Entity\CustomEntity\Aggregate\CustomTranslation\CustomEntityTranslationDefinition">
+            <tag name="shopware.entity.definition" entity="custom_entity_translation" />
+        </service>
+    </services>
+</container>

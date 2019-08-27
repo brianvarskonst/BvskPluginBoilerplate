@@ -1,0 +1,69 @@
+{
+    "name": "brianvarskonst/bvsk-plugin-boilerplate",
+    "description": "A Boilerplate Plugin for Shopware 6 Plugin Development",
+    "version": "1.0.0",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "brianvarskonst",
+            "email": "brianvar.skonst@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.1.3",
+        "shopware/core": "6.0.0+ea1.1",
+        "shopware/administration": "*",
+        "shopware/storefront": "*",
+        "shopware/platform": "*"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.11.5",
+        "phpstan/phpstan-phpunit": "^0.11.0",
+        "phpunit/phpunit": "^8.1",
+        "shopware/development": "*"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "extra": {
+        "shopware-plugin-class": "Bvsk\\PluginBoilerplate\\BvskPluginBoilerplate",
+        "copyright": "(c) by brianvarskonst",
+        "label": {
+            "de-DE": "Plugin BoilerplatePlugin für Shopware 6",
+            "en-GB": "Plugin BoilerplatePlugin for Shopware 6"
+        },
+        "description": {
+            "de-DE": "Beschreibung für das Plugin BoilerplatePlugin",
+            "en-GB": "Description for the plugin BoilerplatePlugin"
+        },
+        "manufacturerLink": {
+            "de-DE": "https://store.example.dev/example-dev.html",
+            "en-GB": "https://store.example.dev/en/example-dev.html"
+        },
+        "supportLink": {
+            "de-DE": "https://docs.example.dev/de",
+            "en-GB": "https://docs.example.dev/en"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Bvsk\\PluginBoilerplate\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bvsk\\PluginBoilerplate\\Tests\\": "tests/"
+        }
+    },
+    "suggest": {
+        "shopware/storefront": "Require '6.0.0+ea1.1'. Enables special payment features like 'Smart Payment Buttons' or 'Express Checkout'",
+        "shopware/administration": "Require '6.0.0+ea1.1'. Allows you to to set up the plugin easily"
+    },
+    "conflict": {
+        "shopware/storefront": "<6,>=7",
+        "shopware/administration": "<6,>=7"
+    }
+}
