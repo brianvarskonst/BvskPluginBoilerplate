@@ -13,6 +13,7 @@ class CustomEntity extends Entity
      * @var string
      */
     protected $technicalName;
+
     /**
      * @var CustomEntityTranslationCollection|null
      */

@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class ExampleSalesChannelController
+class ExampleSalesChannelController extends AbstractController
 {
     /**
      * @Route("/sales-channel-api/v1/boilerplate/example-sales-channel-api-action", name="sales-channel-api.action.boilerplate.example-sales-channel-api-action", methods={"GET"})

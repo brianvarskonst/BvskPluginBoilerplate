@@ -1,4 +1,4 @@
-<?php declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace Bvsk\PluginBoilerplate\ScheduledTask;
 
@@ -8,7 +8,7 @@ class ExampleTaskHandler extends ScheduledTaskHandler
 {
     public static function getHandledMessages(): iterable
     {
-        return [ ExampleTask::class ];
+        return [ExampleTask::class];
     }
 
     public function run(): void

@@ -37,5 +37,4 @@ class AccountController extends StorefrontController
             'page' => $page
         ]);
     }
-
 }

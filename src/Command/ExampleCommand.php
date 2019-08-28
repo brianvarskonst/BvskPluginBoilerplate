@@ -14,6 +14,7 @@ class ExampleCommand extends Command
 {
     /** @var ContainerInterface */
     private $container;
+
     public function __construct(ContainerInterface $container)
     {
         parent::__construct();
@@ -35,9 +36,9 @@ class ExampleCommand extends Command
         $style = new SymfonyStyle($input, $output);
         $style->title('PluginBoilerplate Example Console Command: Generate Random Hex Uuids');
 
-        $maxAmount = (int) ($input->getArgument('maxAmount') ?? 10);
+        $maxAmount = (int)($input->getArgument('maxAmount') ?? 10);
 
-        for ($i = 0; $i < $maxAmount ; ++$i) {
+        for ($i = 0; $i < $maxAmount; ++$i) {
             $style->text(sprintf('Random Hex Uuid: %s', Uuid::randomHex()));
         }
     }
