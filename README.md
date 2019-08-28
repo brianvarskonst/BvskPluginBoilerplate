@@ -24,13 +24,11 @@ This example plugin is not completed and not covers all example cases and is in 
 4. It will load all the required dependency in a `vendor/` folder for this package.
 
 #### Download the Master
-1. Go to [Downloads](https://github.com/brianvarskonst/bvsk-plugin-boilerplate/downloads/)
-2. Before you can download the lastest version, prove that you're human and fill in the reCaptcha right.
-3. After that click on "Download repository" and download the lastest version. 
-4. Unzip the master.zip file.
-5. Create a new folder in the `<shopware-root>/custom/plugins/` directory `$ mkdir swagPluginName`
+1. Download the latest version over this [Download Link](https://github.com/brianvarskonst/bvsk-plugin-boilerplate/archive/master.zip)
+3. Unzip the master.zip file.
+4. Create a new folder in the `<shopware-root>/custom/plugins/` directory `$ mkdir swagPluginName`
     For this example Plugin it: `$ mkdir BvskPluginBoilerplate`
-5. Copy and paste it into the created directory of your plugin.
+5. Copy and paste it into your created directory of your plugin.
 6. Run `$ composer install`
 
 ### Install with the Pluginmanager
