@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-./vendor/bin/phpunit --coverage-html coverage
+composer dump-autoload
+./../../../vendor/bin/phpunit --coverage-html coverage

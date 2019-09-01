@@ -2,10 +2,11 @@
 
 ## A Boilerplate Plugin for [Shopware 6](https://github.com/shopware/platform) Plugin Development
 
-### Note: Created with Shopware EA1.1@dev `v6.0.0+ea1.1@dev`
+### Note: Created with [Shopware 6](https://github.com/shopware/development) EA1.1@dev `v6.0.0+ea1.1@dev`
 
 ## System requirements
-* Shopware >= v6.0.0+ea1
+* Shopware (shopware/development) >= v6.0.0+ea1
+    - Note: Make sure you have the [development Version of Shopware 6](https://github.com/shopware/platform), not the [Install Version from shopware.com](https://www.shopware.com/de/download/#shopware-6). Because the Tests dont will run. 
 * Composer
 * PHP >= 7.2
 * PHPUnit >= 8.1
@@ -31,7 +32,7 @@ This example plugin is not completed and not covers all example cases and is in 
 5. Copy and paste it into your created directory of your plugin.
 6. Run `$ composer install`
 
-### Install with the Pluginmanager
+### Install with Pluginmanager
 1. Login in your current Shopware Admin Dashboard 
     `Url: https://localhost/admin#/login`.
 2. You can find the Pluginmanager under `Settings > System > Plugins`.
