@@ -1,7 +1,16 @@
 {
     "name": "brianvarskonst/bvsk-plugin-boilerplate",
-    "description": "A Boilerplate Plugin for Shopware 6 Plugin Development",
-    "version": "2.0.0",
+    "description": "A Boilerplate Plugin for Shopware 6 Plugin Development, AI-first: AGENTS.md, Agent Skills and CI included",
+    "version": "2.1.0",
+    "keywords": [
+        "shopware",
+        "shopware-6",
+        "shopware-plugin",
+        "boilerplate",
+        "ai",
+        "agents",
+        "agents-md"
+    ],
     "type": "shopware-platform-plugin",
     "license": "MIT",
     "authors": [
@@ -49,6 +58,10 @@
         "psr-4": {
             "Bvsk\\PluginBoilerplate\\Tests\\": "tests/"
         }
+    },
+    "support": {
+        "issues": "https://github.com/brianvarskonst/BvskPluginBoilerplate/issues",
+        "source": "https://github.com/brianvarskonst/BvskPluginBoilerplate"
     },
     "suggest": {
         "shopware/administration": "Require '~6.7.0'. Allows you to to set up the plugin easily"
