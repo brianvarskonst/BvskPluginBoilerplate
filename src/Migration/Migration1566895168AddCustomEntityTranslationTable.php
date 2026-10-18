@@ -17,16 +17,16 @@ class Migration1566895168AddCustomEntityTranslationTable extends MigrationStep
     {
         $createCustomEntityTranslationTableQuery = '
             CREATE TABLE IF NOT EXISTS `' . BvskPluginBoilerplate::PLUGIN_CUSTOM_ENTITY_TRANSLATION_TABLE . '` (
-                `custom_entity_id` BINARY(16) NOT NULL,
+                `bvsk_custom_entity_id` BINARY(16) NOT NULL,
                 `language_id` BINARY(16) NOT NULL,
                 `label` VARCHAR(255) NULL,
                 `created_at` DATETIME(3) NOT NULL,
                 `updated_at` DATETIME(3),
-                  PRIMARY KEY (`custom_entity_id`, `language_id`),
-                  CONSTRAINT `fk.custom_entity_translation.language_id` FOREIGN KEY (`language_id`)
+                  PRIMARY KEY (`bvsk_custom_entity_id`, `language_id`),
+                  CONSTRAINT `fk.bvsk_custom_entity_translation.language_id` FOREIGN KEY (`language_id`)
                     REFERENCES `language` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-                  CONSTRAINT `fk.custom_entity_translation.custom_entity_id` FOREIGN KEY (`custom_entity_id`)
-                    REFERENCES `custom_entity` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+                  CONSTRAINT `fk.bvsk_custom_entity_translation.bvsk_custom_entity_id` FOREIGN KEY (`bvsk_custom_entity_id`)
+                    REFERENCES `' . BvskPluginBoilerplate::PLUGIN_CUSTOM_ENTITY_TABLE . '` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
             )
             ENGINE = InnoDB
             DEFAULT CHARSET = utf8mb4

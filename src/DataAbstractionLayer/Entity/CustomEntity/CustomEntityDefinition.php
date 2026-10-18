@@ -14,7 +14,7 @@ use Bvsk\PluginBoilerplate\DataAbstractionLayer\Entity\CustomEntity\Aggregate\Cu
 
 class CustomEntityDefinition extends EntityDefinition
 {
-    public const ENTITY_NAME = 'custom_entity';
+    public const ENTITY_NAME = 'bvsk_custom_entity';
 
     public function getEntityName(): string
     {
@@ -37,7 +37,7 @@ class CustomEntityDefinition extends EntityDefinition
             (new IdField('id', 'id'))->addFlags(new PrimaryKey(), new Required()),
             new StringField('technical_name', 'technicalName'),
             new TranslatedField('label'),
-            (new TranslationsAssociationField(CustomEntityTranslationDefinition::class, 'custom_entity_id'))->addFlags(new Required()),
+            (new TranslationsAssociationField(CustomEntityTranslationDefinition::class, 'bvsk_custom_entity_id'))->addFlags(new Required()),
         ]);
     }
 }

@@ -16,8 +16,8 @@ class BvskPluginBoilerplate extends Plugin
 {
     public const PLUGIN_TABLE = 'boilerplate';
     public const PLUGIN_TEMPORARY_REDIRECT_TABLE = 'boilerplate_redirect';
-    public const PLUGIN_CUSTOM_ENTITY_TABLE = 'custom_entity';
-    public const PLUGIN_CUSTOM_ENTITY_TRANSLATION_TABLE = 'custom_entity_translation';
+    public const PLUGIN_CUSTOM_ENTITY_TABLE = 'bvsk_custom_entity';
+    public const PLUGIN_CUSTOM_ENTITY_TRANSLATION_TABLE = 'bvsk_custom_entity_translation';
 
     public function build(ContainerBuilder $container): void
     {

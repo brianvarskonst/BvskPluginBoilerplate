@@ -9,7 +9,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
 
 class CustomEntityTranslationDefinition extends EntityTranslationDefinition
 {
-    public const ENTITY_NAME = 'custom_entity_translation';
+    public const ENTITY_NAME = 'bvsk_custom_entity_translation';
 
     public function getEntityName(): string
     {

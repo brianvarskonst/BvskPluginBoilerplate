@@ -65,6 +65,8 @@ $ composer install
 $ bash bin/phpunit.sh
 ```
 
+Note: The tests run in the `test` environment, which ignores the `.env.local` of your Shopware installation. Configure the `DATABASE_URL` in a `.env.test.local` instead, the tests are using a separate `<database>_test` database.
+
 ## Plugin quick start
 To be able to introduce extensions into the system, the core comes with an integrated plugin system. 
 
