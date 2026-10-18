@@ -1,6 +1,6 @@
 # BvskPluginBoilerplate
 
-## A Boilerplate Plugin for [Shopware 6](https://github.com/shopware/platform) Plugin Development
+## A Boilerplate Plugin for [Shopware 6](https://github.com/shopware/shopware) Plugin Development
 
 ### Note: Compatible with [Shopware 6.7](https://github.com/shopware/shopware) `~6.7.0`
 
