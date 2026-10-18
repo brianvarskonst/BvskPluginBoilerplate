@@ -4,12 +4,29 @@
 
 ### Note: Compatible with [Shopware 6.7](https://github.com/shopware/shopware) `~6.7.0`
 
+## AI-first
+This boilerplate is made for coding agents. You describe the plugin you want, the agent does the programming. Nobody has to write the plugin by hand.
+
+Everything an agent needs is part of this repository:
+* [AGENTS.md](AGENTS.md): key paths, verification, invariants, coding style and the definition of done. Claude Code reads `CLAUDE.md`, which only loads this file.
+* [.agents/skills](.agents/skills): step by step skills in the [Agent Skills](https://agentskills.io/specification) format. `rename-plugin` turns the boilerplate into your own plugin, `verify-plugin` checks a change in a throwaway Shopware.
+* [.github/workflows/ci.yml](.github/workflows/ci.yml): runs the same check on every pull request, for PHP 8.2 and 8.5.
+* Private settings go into `AGENTS.override.md`, it is not tracked.
+
+### Start a plugin
+Open the repository in your agent and say what you want, for example:
+
+> Create the plugin `AcmeTracking` for the vendor `Acme` (composer package `acme/acme-tracking`) from this boilerplate. It needs a scheduled task and a configuration page. Keep only the components it needs.
+
+The agent renames the boilerplate (skill `rename-plugin`), builds the feature and checks it (skill `verify-plugin`) before it hands over.
+
 ## System requirements
 * Shopware ~6.7.0
     - Note: To run the tests make sure your Shopware installation includes the dev dependencies (e.g. the [development Version of Shopware 6](https://github.com/shopware/shopware)).
 * Composer
 * PHP >= 8.2
 * PHPUnit >= 11.5
+* Docker (optional), for the `verify-plugin` skill
 
 ## Current Status
 This example plugin is not completed and not covers all example cases and is in current development mode.
@@ -65,6 +82,12 @@ $ composer install
 $ bash bin/phpunit.sh
 ```
 
+Without a Shopware installation, this builds a throwaway Shopware in Docker, runs all checks and removes everything again:
+
+```bash
+$ bash .agents/skills/verify-plugin/scripts/throwaway-shopware.sh
+```
+
 Note: The tests run in the `test` environment, which ignores the `.env.local` of your Shopware installation. Configure the `DATABASE_URL` in a `.env.test.local` instead, the tests are using a separate `<database>_test` database.
 
 ## Plugin quick start
@@ -75,6 +98,8 @@ Plugins are [Symfony Bundles](https://symfony.com/doc/current/bundles.html) whic
 For start reading and developing: [Shopware 6: Plugin base guide](https://developer.shopware.com/docs/guides/plugins/plugins/plugin-base-guide.html)
 
 ## Usage
+The `rename-plugin` skill does the steps 1 to 3 for an agent.
+
 1. Rename the Plugin (Class: `BvskPluginBoilerplate.php` & Namespace: `Bvsk\\PluginBoilerplate`)
 2. Remove not needed components or add new components to the plugin.
 3. Remove or add the components in the `./src/DependencyInjection/services.xml` file and delete the imported files (for example: `commands.xml`) or create new `xml` files and import it.

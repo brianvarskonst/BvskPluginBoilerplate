@@ -9,3 +9,5 @@ composer.lock
 phpunit.xml
 .idea
 .DS_Store
+AGENTS.override.md
+CLAUDE.local.md
