@@ -10,7 +10,7 @@ class CustomTranslationEntity extends TranslationEntity
     /**
      * @var string
      */
-    protected $customEntityId;
+    protected $bvskCustomEntityId;
     /**
      * @var string|null
      */
@@ -18,22 +18,22 @@ class CustomTranslationEntity extends TranslationEntity
     /**
      * @var CustomEntity|null
      */
-    protected $custom;
+    protected $bvskCustomEntity;
 
     /**
      * @return string
      */
-    public function getCustomEntityId(): string
+    public function getBvskCustomEntityId(): string
     {
-        return $this->customEntityId;
+        return $this->bvskCustomEntityId;
     }
 
     /**
-     * @param string $customEntityId
+     * @param string $bvskCustomEntityId
      */
-    public function setCustomEntityId(string $customEntityId): void
+    public function setBvskCustomEntityId(string $bvskCustomEntityId): void
     {
-        $this->customEntityId = $customEntityId;
+        $this->bvskCustomEntityId = $bvskCustomEntityId;
     }
 
     /**
@@ -55,16 +55,16 @@ class CustomTranslationEntity extends TranslationEntity
     /**
      * @return CustomEntity|null
      */
-    public function getCustom(): ?CustomEntity
+    public function getBvskCustomEntity(): ?CustomEntity
     {
-        return $this->custom;
+        return $this->bvskCustomEntity;
     }
 
     /**
-     * @param CustomEntity|null $custom
+     * @param CustomEntity|null $bvskCustomEntity
      */
-    public function setCustom(CustomEntity $custom): void
+    public function setBvskCustomEntity(?CustomEntity $bvskCustomEntity): void
     {
-        $this->custom = $custom;
+        $this->bvskCustomEntity = $bvskCustomEntity;
     }
 }

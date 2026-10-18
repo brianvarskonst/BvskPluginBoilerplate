@@ -10,8 +10,9 @@
 
         <service id="Bvsk\PluginBoilerplate\ScheduledTask\ExampleTaskHandler">
             <argument type="service" id="scheduled_task.repository" />
+            <argument type="service" id="logger" />
 
-            <tag name="messenger.message_handler" />
+            <tag name="messenger.message_handler" handles="Bvsk\PluginBoilerplate\ScheduledTask\ExampleTask" />
         </service>
     </services>
 </container>

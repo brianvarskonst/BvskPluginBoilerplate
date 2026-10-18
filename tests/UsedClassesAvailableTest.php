@@ -12,25 +12,28 @@ class UsedClassesAvailableTest extends TestCase
 
     public function testClassesAreInstantiable(): void
     {
-        $namespace = str_replace('Tests', '', __NAMESPACE__);
+        $namespace = rtrim(str_replace('Tests', '', __NAMESPACE__), '\\');
 
         foreach ($this->getPluginClasses() as $class) {
             $classRelativePath = str_replace(['.php', '/'], ['', '\\'], $class->getRelativePathname());
 
-            $this->getMockBuilder($namespace . '\\' . $classRelativePath)
+            /** @var class-string $className */
+            $className = $namespace . '\\' . $classRelativePath;
+
+            $this->getMockBuilder($className)
                 ->disableOriginalConstructor()
                 ->getMock();
         }
 
         // Nothing broke so far, classes seem to be instantiable
-        $this->assertTrue(true);
+        $this->addToAssertionCount(1);
     }
 
     private function getPluginClasses(): Finder
     {
         $finder = new Finder();
-        $finder->in(realpath(__DIR__ . '/Tests/'));
-        $finder->exclude('Test');
+        $finder->in(__DIR__ . '/../src');
+        $finder->exclude('Resources');
 
         return $finder->files()->name('*.php');
     }

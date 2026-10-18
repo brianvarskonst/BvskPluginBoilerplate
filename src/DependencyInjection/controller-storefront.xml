@@ -8,6 +8,10 @@
 
         <service id="Bvsk\PluginBoilerplate\Storefront\Controller\AccountController">
             <argument type="service" id="Bvsk\PluginBoilerplate\Storefront\Page\AccountPageLoader" />
+
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
         </service>
     </services>
 </container>

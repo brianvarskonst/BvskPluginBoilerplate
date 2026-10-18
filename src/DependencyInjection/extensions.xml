@@ -8,5 +8,9 @@
         <service id="Bvsk\PluginBoilerplate\Extension\Content\Product\CustomExtension">
             <tag name="shopware.entity.extension"/>
         </service>
+
+        <service id="Bvsk\PluginBoilerplate\Extension\System\Language\LanguageExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
     </services>
 </container>

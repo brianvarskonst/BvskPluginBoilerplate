@@ -16,8 +16,8 @@ class BvskPluginBoilerplate extends Plugin
 {
     public const PLUGIN_TABLE = 'boilerplate';
     public const PLUGIN_TEMPORARY_REDIRECT_TABLE = 'boilerplate_redirect';
-    public const PLUGIN_CUSTOM_ENTITY_TABLE = 'custom_entity';
-    public const PLUGIN_CUSTOM_ENTITY_TRANSLATION_TABLE = 'custom_entity_translation';
+    public const PLUGIN_CUSTOM_ENTITY_TABLE = 'bvsk_custom_entity';
+    public const PLUGIN_CUSTOM_ENTITY_TRANSLATION_TABLE = 'bvsk_custom_entity_translation';
 
     public function build(ContainerBuilder $container): void
     {
@@ -50,15 +50,16 @@ class BvskPluginBoilerplate extends Plugin
             return;
         }
 
+        /** @var Connection $connection */
         $connection = $this->container->get(Connection::class);
 
-        $connection->executeQuery('DROP TABLE IF EXISTS `' . self::PLUGIN_TABLE . '`');
-        $connection->executeQuery('DROP TABLE IF EXISTS `' . self::PLUGIN_TEMPORARY_REDIRECT_TABLE . '`');
+        $connection->executeStatement('DROP TABLE IF EXISTS `' . self::PLUGIN_TABLE . '`');
+        $connection->executeStatement('DROP TABLE IF EXISTS `' . self::PLUGIN_TEMPORARY_REDIRECT_TABLE . '`');
 
         // While the foreign key checks are disabled the tables can be dropped now, the checks are then turned back on to keep the integrity of the table structure
-        $connection->executeQuery('SET foreign_key_checks = 0;');
-        $connection->executeQuery('DROP TABLE IF EXISTS `' . self::PLUGIN_CUSTOM_ENTITY_TABLE . '`');
-        $connection->executeQuery('DROP TABLE IF EXISTS `' . self::PLUGIN_CUSTOM_ENTITY_TRANSLATION_TABLE . '`');
-        $connection->executeQuery('SET foreign_key_checks = 1;');
+        $connection->executeStatement('SET foreign_key_checks = 0;');
+        $connection->executeStatement('DROP TABLE IF EXISTS `' . self::PLUGIN_CUSTOM_ENTITY_TABLE . '`');
+        $connection->executeStatement('DROP TABLE IF EXISTS `' . self::PLUGIN_CUSTOM_ENTITY_TRANSLATION_TABLE . '`');
+        $connection->executeStatement('SET foreign_key_checks = 1;');
     }
 }

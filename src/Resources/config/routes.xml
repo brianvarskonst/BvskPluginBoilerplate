@@ -4,8 +4,8 @@
         xsi:schemaLocation="http://symfony.com/schema/routing
     http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <import resource="@BvskPluginBoilerplate/Controller/Api/ExampleApiController.php" type="annotation" />
-    <import resource="@BvskPluginBoilerplate/Controller/SalesChannel/ExampleSalesChannelController.php" type="annotation" />
-    <import resource="@BvskPluginBoilerplate/Controller/RedirectController.php" type="annotation" />
-    <import resource="@BvskPluginBoilerplate/Storefront/Controller/AccountController.php" type="annotation" />
+    <import resource="@BvskPluginBoilerplate/Controller/Api/ExampleApiController.php" type="attribute" />
+    <import resource="@BvskPluginBoilerplate/Controller/SalesChannel/ExampleSalesChannelController.php" type="attribute" />
+    <import resource="@BvskPluginBoilerplate/Controller/RedirectController.php" type="attribute" />
+    <import resource="@BvskPluginBoilerplate/Storefront/Controller/AccountController.php" type="attribute" />
 </routes>

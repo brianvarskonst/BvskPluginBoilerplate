@@ -3,13 +3,15 @@
 namespace Bvsk\PluginBoilerplate\Storefront\Controller;
 
 use Bvsk\PluginBoilerplate\Storefront\Page\AccountPageLoader;
-use Shopware\Core\Checkout\Cart\Exception\CustomerNotLoggedInException;
+use Shopware\Core\PlatformRequest;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Shopware\Storefront\Controller\StorefrontController;
+use Shopware\Storefront\Framework\Routing\StorefrontRouteScope;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
+#[Route(defaults: [PlatformRequest::ATTRIBUTE_ROUTE_SCOPE => [StorefrontRouteScope::ID]])]
 class AccountController extends StorefrontController
 {
     /**
@@ -22,15 +24,9 @@ class AccountController extends StorefrontController
         $this->accountPageLoader = $accountPageLoader;
     }
 
-    /**
-     * @Route("/account/boilerplate", name="frontend.account.boilerplate.page", options={"seo": "false"}, methods={"GET"})
-     *
-     * @throws CustomerNotLoggedInException
-     */
+    #[Route(path: '/account/boilerplate', name: 'frontend.account.boilerplate.page', options: ['seo' => false], defaults: [PlatformRequest::ATTRIBUTE_LOGIN_REQUIRED => true], methods: ['GET'])]
     public function overview(Request $request, SalesChannelContext $context): Response
     {
-        $this->denyAccessUnlessLoggedIn();
-
         $page = $this->accountPageLoader->load($request, $context);
 
         return $this->renderStorefront('@Storefront/boilerplate/account/index.html.twig', [

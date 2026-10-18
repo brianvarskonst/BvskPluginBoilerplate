@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 
 echo "Fix PHP files"
-./../../../vendor/shopware/platform/bin/php-cs-fixer.phar fix --config=../../../vendor/shopware/platform/.php_cs.dist -vv .
+./../../../vendor/bin/php-cs-fixer fix --config=../../../.php-cs-fixer.dist.php -vv .
 
 echo "Fix Javascript files"
-../../../vendor/shopware/platform/src/Administration/Resources/administration/node_modules/.bin/eslint --ignore-path .eslintignore --config ../../../vendor/shopware/platform/src/Administration/Resources/administration/.eslintrc.js --ext .js,.vue --fix .
+if [ -d src/Resources/app/administration ]; then
+    # Shopware's extension tooling only knows installed and active plugins
+    cd ../../.. || exit 1
+    bin/console bundle:dump
+    composer admin:setup-extension-tooling
+    composer admin:generate-entity-schema-types
+    composer admin:check-extensions -- --only=BvskPluginBoilerplate --fix
+else
+    echo "No Administration sources found, skipping"
+fi

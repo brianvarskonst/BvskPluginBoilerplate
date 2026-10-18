@@ -4,6 +4,7 @@ coverage/
 vendor/
 .env
 .php_cs.cache
+var/
 composer.lock
 phpunit.xml
 .idea

@@ -28,7 +28,7 @@ class Migration1566802025AddCustomEntityTable extends MigrationStep
             COLLATE = utf8mb4_unicode_ci;
         ';
 
-        $connection->executeQuery($createCustomEntityTableQuery);
+        $connection->executeStatement($createCustomEntityTableQuery);
     }
 
     public function updateDestructive(Connection $connection): void

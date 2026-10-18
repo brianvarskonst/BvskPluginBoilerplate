@@ -37,7 +37,7 @@ class Migration1566608147AddPluginBoilerplateTable extends MigrationStep
             COLLATE = utf8mb4_unicode_ci;
         ';
 
-        $connection->executeQuery($query);
+        $connection->executeStatement($query);
     }
 
     public function updateDestructive(Connection $connection): void
