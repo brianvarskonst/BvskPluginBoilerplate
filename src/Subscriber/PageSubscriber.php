@@ -26,7 +26,7 @@ class PageSubscriber implements EventSubscriberInterface
      *  * ['eventName' => ['methodName', $priority]]
      *  * ['eventName' => [['methodName1', $priority], ['methodName2']]]
      *
-     * @return array The event names to listen to
+     * @return array<string, string> The event names to listen to
      */
     public static function getSubscribedEvents(): array
     {
@@ -39,7 +39,7 @@ class PageSubscriber implements EventSubscriberInterface
     /**
      * Event-function to add the ean item prop
      *
-     * @param EntityLoadedEvent $event
+     * @param EntityLoadedEvent<ProductEntity> $event
      * @return void
      */
     public function onProductsLoaded(EntityLoadedEvent $event): void

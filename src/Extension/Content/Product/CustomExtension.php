@@ -3,12 +3,12 @@
 namespace Bvsk\PluginBoilerplate\Extension\Content\Product;
 
 use Shopware\Core\Content\Product\ProductDefinition;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityExtensionInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityExtension;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\Runtime;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\ObjectField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
 
-class CustomExtension implements EntityExtensionInterface
+class CustomExtension extends EntityExtension
 {
     public function extendFields(FieldCollection $collection): void
     {
@@ -17,8 +17,8 @@ class CustomExtension implements EntityExtensionInterface
         );
     }
 
-    public function getDefinitionClass(): string
+    public function getEntityName(): string
     {
-        return ProductDefinition::class;
+        return ProductDefinition::ENTITY_NAME;
     }
 }

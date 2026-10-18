@@ -6,5 +6,6 @@ use Shopware\Core\Framework\Struct\Struct;
 
 class ExampleCustomStruct extends Struct
 {
+    /** @var string */
     public $test = 'foo';
 }

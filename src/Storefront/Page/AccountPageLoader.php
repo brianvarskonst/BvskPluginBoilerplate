@@ -2,21 +2,21 @@
 
 namespace Bvsk\PluginBoilerplate\Storefront\Page;
 
-use Shopware\Core\Checkout\Cart\Exception\CustomerNotLoggedInException;
+use Shopware\Core\Checkout\Cart\CartException;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
-use Shopware\Storefront\Page\GenericPageLoader;
+use Shopware\Storefront\Page\GenericPageLoaderInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class AccountPageLoader
 {
-    /** @var GenericPageLoader */
+    /** @var GenericPageLoaderInterface */
     private $genericLoader;
 
     /** @var EventDispatcherInterface */
     private $eventDispatcher;
 
-    public function __construct(GenericPageLoader $genericLoader, EventDispatcherInterface $eventDispatcher)
+    public function __construct(GenericPageLoaderInterface $genericLoader, EventDispatcherInterface $eventDispatcher)
     {
         $this->genericLoader = $genericLoader;
         $this->eventDispatcher = $eventDispatcher;
@@ -25,7 +25,7 @@ class AccountPageLoader
     public function load(Request $request, SalesChannelContext $context): AccountPage
     {
         if (!$context->getCustomer()) {
-            throw new CustomerNotLoggedInException();
+            throw CartException::customerNotLoggedIn();
         }
 
         $page = AccountPage::createFrom(

@@ -63,7 +63,7 @@ class CustomTranslationEntity extends TranslationEntity
     /**
      * @param CustomEntity|null $custom
      */
-    public function setCustom(CustomEntity $custom): void
+    public function setCustom(?CustomEntity $custom): void
     {
         $this->custom = $custom;
     }

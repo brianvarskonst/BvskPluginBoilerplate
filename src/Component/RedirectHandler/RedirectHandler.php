@@ -17,15 +17,19 @@ class RedirectHandler
     /** @var RouterInterface */
     private $router;
 
-    public function __construct(Connection $connection, RouterInterface $router)
+    /** @var string */
+    private $secret;
+
+    public function __construct(Connection $connection, RouterInterface $router, string $secret)
     {
         $this->connection = $connection;
         $this->router = $router;
+        $this->secret = $secret;
     }
 
     public function encode(string $url): string
     {
-        $hash = base64_encode(hash_hmac('sha256', $url, getenv('APP_SECRET')));
+        $hash = base64_encode(hash_hmac('sha256', $url, $this->secret));
 
         $this->connection->insert(BvskPluginBoilerplate::PLUGIN_TEMPORARY_REDIRECT_TABLE, [
             'id' => Uuid::randomBytes(),
@@ -44,7 +48,7 @@ class RedirectHandler
     {
         $query = 'SELECT url FROM ' . BvskPluginBoilerplate::PLUGIN_TEMPORARY_REDIRECT_TABLE . ' WHERE hash = ?';
 
-        $url = $this->connection->fetchColumn($query, [$hash]);
+        $url = $this->connection->fetchOne($query, [$hash]);
 
         if (empty($url)) {
             throw new RuntimeException('no matching url for hash found');

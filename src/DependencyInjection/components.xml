@@ -7,6 +7,7 @@
         <service id="Bvsk\PluginBoilerplate\Component\RedirectHandler\RedirectHandler">
             <argument type="service" id="Doctrine\DBAL\Connection"/>
             <argument type="service" id="router.default"/>
+            <argument>%kernel.secret%</argument>
         </service>
     </services>
 </container>

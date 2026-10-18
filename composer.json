@@ -1,7 +1,7 @@
 {
     "name": "brianvarskonst/bvsk-plugin-boilerplate",
     "description": "A Boilerplate Plugin for Shopware 6 Plugin Development",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "type": "shopware-platform-plugin",
     "license": "MIT",
     "authors": [
@@ -10,10 +10,10 @@
             "email": "brianvar.skonst@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
-        "php": "^7.1.3",
-        "shopware/core": "6.0.0+ea1.1"
+        "php": "^8.2",
+        "shopware/core": "~6.7.0",
+        "shopware/storefront": "~6.7.0"
     },
     "require-dev": {},
     "config": {
@@ -51,11 +51,6 @@
         }
     },
     "suggest": {
-        "shopware/storefront": "Require '6.0.0+ea1.1'. Enables special payment features like 'Smart Payment Buttons' or 'Express Checkout'",
-        "shopware/administration": "Require '6.0.0+ea1.1'. Allows you to to set up the plugin easily"
-    },
-    "conflict": {
-        "shopware/storefront": "<6,>=7",
-        "shopware/administration": "<6,>=7"
+        "shopware/administration": "Require '~6.7.0'. Allows you to to set up the plugin easily"
     }
 }

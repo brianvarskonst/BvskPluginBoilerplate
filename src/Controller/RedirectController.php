@@ -3,13 +3,16 @@
 namespace Bvsk\PluginBoilerplate\Controller;
 
 use Bvsk\PluginBoilerplate\Component\RedirectHandler\RedirectHandler;
+use Shopware\Core\PlatformRequest;
+use Shopware\Storefront\Framework\Routing\StorefrontRouteScope;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Throwable;
 
+#[Route(defaults: [PlatformRequest::ATTRIBUTE_ROUTE_SCOPE => [StorefrontRouteScope::ID]])]
 class RedirectController
 {
     /**
@@ -22,9 +25,7 @@ class RedirectController
         $this->redirectHandler = $redirectHandler;
     }
 
-    /**
-     * @Route("/boilerplate/redirect", name="boilerplate_redirect")
-     */
+    #[Route(path: '/boilerplate/redirect', name: 'boilerplate_redirect', methods: ['GET'])]
     public function execute(Request $request): Response
     {
         $hash = $request->get('hash');

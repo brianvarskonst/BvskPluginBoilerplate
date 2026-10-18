@@ -31,7 +31,7 @@ class ExampleCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $style = new SymfonyStyle($input, $output);
         $style->title('PluginBoilerplate Example Console Command: Generate Random Hex Uuids');
@@ -41,5 +41,7 @@ class ExampleCommand extends Command
         for ($i = 0; $i < $maxAmount; ++$i) {
             $style->text(sprintf('Random Hex Uuid: %s', Uuid::randomHex()));
         }
+
+        return self::SUCCESS;
     }
 }

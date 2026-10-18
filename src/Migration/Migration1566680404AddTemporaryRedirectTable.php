@@ -26,7 +26,7 @@ class Migration1566680404AddTemporaryRedirectTable extends MigrationStep
             COLLATE=utf8mb4_unicode_ci;
         ';
 
-        $connection->executeQuery($query);
+        $connection->executeStatement($query);
     }
 
     public function updateDestructive(Connection $connection): void
